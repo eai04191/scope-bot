@@ -7,8 +7,8 @@ import {
     EmbedBuilder,
     SlashCommandBuilder,
 } from "discord.js";
-import knownUnits from "../data/units.json";
-import emoji from "../data/emoji.json";
+import knownUnits from "../data/units.json" assert { type: "json" };
+import emoji from "../data/emoji.json" assert { type: "json" };
 import { supabase } from "../db";
 
 type Recipe = {
