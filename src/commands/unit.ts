@@ -44,11 +44,7 @@ export default {
                 .setAutocomplete(true)
         ),
     async execute(interaction: ChatInputCommandInteraction<CacheType>) {
-        const pckey = interaction.options.getString("name");
-        if (!pckey) {
-            await interaction.reply("name is required");
-            return;
-        }
+        const pckey = interaction.options.getString("name", true);
 
         const { data: recipes, error } = await supabase.rpc<Recipe>(
             "find_recipe_by_pckey",
