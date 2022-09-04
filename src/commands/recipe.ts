@@ -1,58 +1,119 @@
-import "dotenv/config";
 import {
-    APIApplicationCommandOptionChoice,
-    AutocompleteInteraction,
     CacheType,
     ChatInputCommandInteraction,
     EmbedBuilder,
     SlashCommandBuilder,
 } from "discord.js";
-import knownUnits from "../data/units.json" assert { type: "json" };
 import emoji from "../data/emoji.json" assert { type: "json" };
 import { supabase } from "../db";
 
-type Recipe = {
-    MetalUsed: number;
-    NutrientHeadUsed: number;
-    NutrientChestUsed: number;
-    NutrientLegUsed: number;
-    PowerUsed: number;
-    SpecialItemUsed: number;
-    IsSpecial: boolean;
+type Hoge = {
+    PCKeyString: string;
     count: number;
+    ratio: number;
+    total: number;
 };
-
-const unitChoices: APIApplicationCommandOptionChoice<string>[] = knownUnits.map(
-    (unitId: string) => {
-        const maker = unitId.match(/^Char_.+?_/)[0];
-        return {
-            name: unitId.replace(maker, "").replace("_N", ""),
-            value: unitId,
-        };
-    }
-);
 
 export default {
     data: new SlashCommandBuilder()
         .setName("recipe")
-        .setDescription("指定した戦闘員が作られたレシピを検索します")
-        .addStringOption((option) =>
+        .setDescription("指定したレシピから作られた戦闘員を検索します")
+        .addIntegerOption((option) =>
             option
-                .setName("name")
-                .setDescription("戦闘員の名前")
+                .setName("metal")
+                .setDescription("投入された部品の量")
                 .setRequired(true)
-                .setAutocomplete(true)
+        )
+        .addIntegerOption((option) =>
+            option
+                .setName("nutrient_head")
+                .setDescription("投入された栄養(頭)の量")
+                .setRequired(true)
+        )
+        .addIntegerOption((option) =>
+            option
+
+                .setName("nutrient_chest")
+                .setDescription("投入された栄養(上部)の量")
+                .setRequired(true)
+        )
+        .addIntegerOption((option) =>
+            option
+
+                .setName("nutrient_leg")
+                .setDescription("投入された栄養(下部)の量")
+                .setRequired(true)
+        )
+        .addIntegerOption((option) =>
+            option
+
+                .setName("power")
+                .setDescription("投入された電力の量")
+                .setRequired(true)
+        )
+        .addIntegerOption((option) =>
+            option
+
+                .setName("special_item")
+                .setDescription(
+                    "投入された高級モジュールの量 0で一般製造 10,20,50,100で特殊製造"
+                )
+                .setRequired(true)
         ),
     async execute(interaction: ChatInputCommandInteraction<CacheType>) {
-        const pckey = interaction.options.getString("name");
-        if (!pckey) {
-            await interaction.reply("name is required");
+        const metal = interaction.options.getInteger("metal", true);
+        const nutrientHead = interaction.options.getInteger(
+            "nutrient_head",
+            true
+        );
+        const nutrientChest = interaction.options.getInteger(
+            "nutrient_chest",
+            true
+        );
+        const nutrientLeg = interaction.options.getInteger(
+            "nutrient_leg",
+            true
+        );
+        const power = interaction.options.getInteger("power", true);
+        const specialItem = interaction.options.getInteger(
+            "special_item",
+            true
+        );
+
+        if (
+            metal % 10 !== 0 ||
+            nutrientHead % 10 !== 0 ||
+            nutrientChest % 10 !== 0 ||
+            nutrientLeg % 10 !== 0 ||
+            power % 10 !== 0 ||
+            specialItem % 10 !== 0
+        ) {
+            await interaction.reply({
+                content: "パラメータは10の倍数でなければなりません",
+                ephemeral: true,
+            });
             return;
         }
 
-        const { data: recipes, error } = await supabase.rpc<Recipe>(
-            "find_recipe_by_pckey",
-            { pckey }
+        if ([0, 10, 20, 50, 100].some((v) => v === specialItem) === false) {
+            await interaction.reply({
+                content:
+                    "高級モジュールの数は`0`, `10`, `20`, `50`, `100`のいずれかでなければなりません",
+                ephemeral: true,
+            });
+            return;
+        }
+
+        const { data: units, error } = await supabase.rpc<Hoge>(
+            "find_pckey_by_recipe",
+            {
+                metal,
+                nutrient_head: nutrientHead,
+                nutrient_chest: nutrientChest,
+                nutrient_leg: nutrientLeg,
+                power,
+                special_item: specialItem,
+            }
         );
         if (error) {
             console.error(error);
@@ -63,52 +124,52 @@ export default {
             return;
         }
 
-        if (recipes.length === 0) {
+        if (units.length === 0) {
             await interaction.reply({
-                content: ":thinking: レシピが見つかりませんでした",
+                content:
+                    ":thinking: このレシピで製造されたユニットが見つかりませんでした",
                 ephemeral: true,
             });
             return;
         }
 
-        const icon = `https://cdn.laoplus.net/formationicon/FormationIcon_${pckey.replace(
-            /^Char_/,
-            ""
-        )}.webp`;
-        const name = pckey.replace(/^Char_.+?_/, "").replace("_N", "");
+        const numWithComma = new Intl.NumberFormat();
         const embed = new EmbedBuilder();
         embed
-            .setThumbnail(icon)
-            .setTitle(name)
-            .setDescription("を排出したレシピ一覧")
+            .setTitle(
+                [
+                    `${emoji.metal} ${metal}`,
+                    `${emoji.nutrient} (${nutrientHead} / ${nutrientChest} / ${nutrientLeg})`,
+                    `${emoji.power} ${power}`,
+                    specialItem !== 0
+                        ? `${emoji.advanced_module} ${specialItem}`
+                        : null,
+                ]
+                    .filter((a) => a)
+                    .join(" / ")
+            )
+            .setDescription(
+                `で排出された戦闘員 (全 ${numWithComma.format(
+                    units[0].total
+                )}回)`
+            )
             .addFields(
-                recipes.slice(0, 5).map((recipe, index) => ({
-                    name: `${index + 1}. ${recipe.count} 回排出`,
-                    value:
-                        `${recipe.IsSpecial ? "🟥" : "🟩"} ` +
-                        [
-                            `${emoji.metal} **${recipe.MetalUsed}**`,
-                            `${emoji.nutrient} (**${recipe.NutrientHeadUsed}**`,
-                            `**${recipe.NutrientChestUsed}**`,
-                            `**${recipe.NutrientLegUsed}**)`,
-                            `${emoji.power} **${recipe.PowerUsed}**`,
-                            recipe.SpecialItemUsed !== 0
-                                ? `${emoji.advanced_module} **${recipe.SpecialItemUsed}**`
-                                : null,
-                        ]
-                            .filter((a) => a)
-                            .join(" / "),
-                }))
+                units.slice(0, 6).map((unit, index) => {
+                    const name = unit.PCKeyString.replace(
+                        /^Char_.+?_/,
+                        ""
+                    ).replace("_N", "");
+                    const ratio = Math.round(unit.ratio * 100 * 100) / 100;
+                    const count = numWithComma.format(unit.count);
+
+                    return {
+                        name: `__${index + 1}.__ ${count}回排出 (${ratio}%)`,
+                        value: `${name}`,
+                        inline: true,
+                    };
+                })
             );
 
         await interaction.reply({ embeds: [embed] });
-    },
-    async executeAutocomplete(interaction: AutocompleteInteraction<CacheType>) {
-        const focusedValue = interaction.options.getFocused();
-        const filtered = unitChoices.filter((choice) =>
-            choice.name.toLowerCase().includes(focusedValue.toLowerCase())
-        );
-        const slicedFiltered = filtered.slice(0, 25);
-        await interaction.respond(slicedFiltered);
     },
 };
