@@ -73,13 +73,13 @@ export async function unit({ pckey }: { pckey: string }) {
                 recipes.slice(0, 5).map((recipe) => {
                     return {
                         label: [
-                            `⚙️ ${recipe.MetalUsed}`,
-                            `💊 (${recipe.NutrientHeadUsed}`,
+                            `⚙️${recipe.MetalUsed}`,
+                            `💊(${recipe.NutrientHeadUsed}`,
                             `${recipe.NutrientChestUsed}`,
                             `${recipe.NutrientLegUsed})`,
-                            `🔋 ${recipe.PowerUsed}`,
+                            `🔋${recipe.PowerUsed}`,
                             recipe.SpecialItemUsed !== 0
-                                ? `🟥 ${recipe.SpecialItemUsed}`
+                                ? `🟥${recipe.SpecialItemUsed}`
                                 : null,
                         ]
                             .filter((a) => a)
