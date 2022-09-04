@@ -5,6 +5,7 @@ import {
     AutocompleteInteraction,
     CacheType,
     ChatInputCommandInteraction,
+    SelectMenuInteraction,
     SlashCommandBuilder,
 } from "discord.js";
 
@@ -13,6 +14,9 @@ export type Command = {
     execute(interaction: ChatInputCommandInteraction<CacheType>): Promise<void>;
     executeAutocomplete?(
         interaction: AutocompleteInteraction<CacheType>
+    ): Promise<void>;
+    executeSelectMenu?(
+        interaction: SelectMenuInteraction<CacheType>
     ): Promise<void>;
 };
 

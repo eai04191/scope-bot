@@ -53,4 +53,30 @@ client.on("interactionCreate", async (interaction) => {
     }
 });
 
+client.on("interactionCreate", async (interaction) => {
+    if (!interaction.isSelectMenu()) return;
+
+    const command = (() => {
+        switch (interaction.customId) {
+            case "select_search_by_recipe":
+                return interaction.client.commands.get("unit");
+            case "select_search_by_unit":
+                return interaction.client.commands.get("recipe");
+            default:
+                return null;
+        }
+    })();
+
+    if (!command) return;
+
+    try {
+        if (!command.executeSelectMenu) {
+            return;
+        }
+        await command.executeSelectMenu(interaction);
+    } catch (error) {
+        console.error(error);
+    }
+});
+
 client.login(token);

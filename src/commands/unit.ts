@@ -1,26 +1,14 @@
-import "dotenv/config";
 import {
     APIApplicationCommandOptionChoice,
     AutocompleteInteraction,
     CacheType,
     ChatInputCommandInteraction,
-    EmbedBuilder,
+    SelectMenuInteraction,
     SlashCommandBuilder,
 } from "discord.js";
 import knownUnits from "../data/units.json" assert { type: "json" };
-import emoji from "../data/emoji.json" assert { type: "json" };
-import { supabase } from "../db";
-
-type Recipe = {
-    MetalUsed: number;
-    NutrientHeadUsed: number;
-    NutrientChestUsed: number;
-    NutrientLegUsed: number;
-    PowerUsed: number;
-    SpecialItemUsed: number;
-    IsSpecial: boolean;
-    count: number;
-};
+import { unit } from "./logic/unit";
+import { recipe } from "./logic/recipe";
 
 const unitChoices: APIApplicationCommandOptionChoice<string>[] = knownUnits.map(
     (unitId: string) => {
@@ -46,62 +34,19 @@ export default {
     async execute(interaction: ChatInputCommandInteraction<CacheType>) {
         const pckey = interaction.options.getString("name", true);
 
-        const { data: recipes, error } = await supabase.rpc<Recipe>(
-            "find_recipe_by_pckey",
-            { pckey }
-        );
-        if (error) {
-            console.error(error);
+        try {
+            const response = await unit({
+                pckey,
+            });
+            await interaction.reply(response);
+        } catch (error) {
+            console.error("units execute", error);
             await interaction.reply({
-                content: ":warning: エラーが発生しました",
+                content: error.message,
                 ephemeral: true,
             });
             return;
         }
-
-        if (recipes.length === 0) {
-            await interaction.reply({
-                content: ":thinking: レシピが見つかりませんでした",
-                ephemeral: true,
-            });
-            return;
-        }
-
-        const icon = `https://cdn.laoplus.net/formationicon/FormationIcon_${pckey.replace(
-            /^Char_/,
-            ""
-        )}.webp`;
-        const name = pckey.replace(/^Char_.+?_/, "").replace("_N", "");
-        const numWithComma = new Intl.NumberFormat();
-        const embed = new EmbedBuilder();
-        embed
-            .setThumbnail(icon)
-            .setTitle(name)
-            .setDescription("を排出したレシピ一覧")
-            .addFields(
-                recipes.slice(0, 5).map((recipe, index) => {
-                    const count = numWithComma.format(recipe.count);
-                    return {
-                        name: `__${index + 1}.__ ${count} 回排出`,
-                        value:
-                            `${recipe.IsSpecial ? "🟥" : "🟩"} ` +
-                            [
-                                `${emoji.metal} **${recipe.MetalUsed}**`,
-                                `${emoji.nutrient} (**${recipe.NutrientHeadUsed}**`,
-                                `**${recipe.NutrientChestUsed}**`,
-                                `**${recipe.NutrientLegUsed}**)`,
-                                `${emoji.power} **${recipe.PowerUsed}**`,
-                                recipe.SpecialItemUsed !== 0
-                                    ? `${emoji.advanced_module} **${recipe.SpecialItemUsed}**`
-                                    : null,
-                            ]
-                                .filter((a) => a)
-                                .join(" / "),
-                    };
-                })
-            );
-
-        await interaction.reply({ embeds: [embed] });
     },
     async executeAutocomplete(interaction: AutocompleteInteraction<CacheType>) {
         const focusedValue = interaction.options.getFocused();
@@ -110,5 +55,25 @@ export default {
         );
         const slicedFiltered = filtered.slice(0, 25);
         await interaction.respond(slicedFiltered);
+    },
+    async executeSelectMenu(interaction: SelectMenuInteraction<CacheType>) {
+        try {
+            const dataArray = JSON.parse(interaction.values[0]);
+            const data = {
+                metal: dataArray[0],
+                nutrientHead: dataArray[1],
+                nutrientChest: dataArray[2],
+                nutrientLeg: dataArray[3],
+                power: dataArray[4],
+                specialItem: dataArray[5],
+            };
+            const response = await recipe(data);
+            await interaction.reply(response);
+        } catch (error) {
+            await interaction.reply({
+                content: error.message,
+                ephemeral: true,
+            });
+        }
     },
 };
