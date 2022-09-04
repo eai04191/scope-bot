@@ -163,7 +163,7 @@ export default {
                     const count = numWithComma.format(unit.count);
 
                     return {
-                        name: `__${index + 1}.__ ${count}回排出 (${ratio}%)`,
+                        name: `__${index + 1}.__ ${count} 回排出 (${ratio}%)`,
                         value: `${name}`,
                         inline: true,
                     };

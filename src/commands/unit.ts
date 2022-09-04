@@ -76,29 +76,33 @@ export default {
             ""
         )}.webp`;
         const name = pckey.replace(/^Char_.+?_/, "").replace("_N", "");
+        const numWithComma = new Intl.NumberFormat();
         const embed = new EmbedBuilder();
         embed
             .setThumbnail(icon)
             .setTitle(name)
             .setDescription("を排出したレシピ一覧")
             .addFields(
-                recipes.slice(0, 5).map((recipe, index) => ({
-                    name: `${index + 1}. ${recipe.count} 回排出`,
-                    value:
-                        `${recipe.IsSpecial ? "🟥" : "🟩"} ` +
-                        [
-                            `${emoji.metal} **${recipe.MetalUsed}**`,
-                            `${emoji.nutrient} (**${recipe.NutrientHeadUsed}**`,
-                            `**${recipe.NutrientChestUsed}**`,
-                            `**${recipe.NutrientLegUsed}**)`,
-                            `${emoji.power} **${recipe.PowerUsed}**`,
-                            recipe.SpecialItemUsed !== 0
-                                ? `${emoji.advanced_module} **${recipe.SpecialItemUsed}**`
-                                : null,
-                        ]
-                            .filter((a) => a)
-                            .join(" / "),
-                }))
+                recipes.slice(0, 5).map((recipe, index) => {
+                    const count = numWithComma.format(recipe.count);
+                    return {
+                        name: `__${index + 1}.__ ${count} 回排出`,
+                        value:
+                            `${recipe.IsSpecial ? "🟥" : "🟩"} ` +
+                            [
+                                `${emoji.metal} **${recipe.MetalUsed}**`,
+                                `${emoji.nutrient} (**${recipe.NutrientHeadUsed}**`,
+                                `**${recipe.NutrientChestUsed}**`,
+                                `**${recipe.NutrientLegUsed}**)`,
+                                `${emoji.power} **${recipe.PowerUsed}**`,
+                                recipe.SpecialItemUsed !== 0
+                                    ? `${emoji.advanced_module} **${recipe.SpecialItemUsed}**`
+                                    : null,
+                            ]
+                                .filter((a) => a)
+                                .join(" / "),
+                    };
+                })
             );
 
         await interaction.reply({ embeds: [embed] });
