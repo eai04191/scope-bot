@@ -2,6 +2,7 @@ import { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } from "discord.js";
 import { supabase } from "../../db";
 import { createRecipeString } from "../../util/createRecipeString";
 import { getUnit } from "../../util/getUnit";
+import emoji from "../../data/emoji.json" assert { type: "json" };
 
 type Recipe = {
     MetalUsed: number;
@@ -39,7 +40,12 @@ export async function unit({ pckey }: { pckey: string }) {
     const embed = new EmbedBuilder();
     embed
         .setThumbnail(icon)
-        .setTitle(unit.name)
+        .setTitle(`${emoji.tactics_manual} ${unit.name}`)
+        .setURL(
+            `https://lo.swaytwig.com/units/${pckey
+                .replace(/^Char_/, "")
+                .replace(/_N$/, "")}`
+        )
         .setDescription("を排出したレシピ一覧")
         .addFields(
             recipes.slice(0, 5).map((recipe, index) => {
