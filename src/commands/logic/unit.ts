@@ -1,6 +1,7 @@
 import { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } from "discord.js";
 import emoji from "../../data/emoji.json" assert { type: "json" };
 import { supabase } from "../../db";
+import { getUnit } from "../../util/getUnit";
 
 type Recipe = {
     MetalUsed: number;
@@ -33,12 +34,12 @@ export async function unit({ pckey }: { pckey: string }) {
         /^Char_/,
         ""
     )}.webp`;
-    const name = pckey.replace(/^Char_.+?_/, "").replace("_N", "");
+    const unit = getUnit(pckey);
     const numWithComma = new Intl.NumberFormat();
     const embed = new EmbedBuilder();
     embed
         .setThumbnail(icon)
-        .setTitle(name)
+        .setTitle(unit.name)
         .setDescription("を排出したレシピ一覧")
         .addFields(
             recipes.slice(0, 5).map((recipe, index) => {

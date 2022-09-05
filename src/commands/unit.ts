@@ -6,16 +6,19 @@ import {
     SelectMenuInteraction,
     SlashCommandBuilder,
 } from "discord.js";
-import knownUnits from "../data/units.json" assert { type: "json" };
+import units from "../data/units.json" assert { type: "json" };
 import { unit } from "./logic/unit";
 import { recipe } from "./logic/recipe";
 
-const unitChoices: APIApplicationCommandOptionChoice<string>[] = knownUnits.map(
-    (unitId: string) => {
-        const maker = unitId.match(/^Char_.+?_/)[0];
+const unitChoices: APIApplicationCommandOptionChoice<string>[] = units.map(
+    (unit) => {
+        const pckeyToShow = unit.key
+            .replace(/^Char_.+?_/, "")
+            .replace("_N", "");
+
         return {
-            name: unitId.replace(maker, "").replace("_N", ""),
-            value: unitId,
+            name: `${unit.name} (${pckeyToShow})`,
+            value: unit.key,
         };
     }
 );

@@ -1,6 +1,7 @@
 import { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } from "discord.js";
 import emoji from "../../data/emoji.json" assert { type: "json" };
 import { supabase } from "../../db";
+import { getUnit } from "../../util/getUnit";
 
 type Response = {
     PCKeyString: string;
@@ -82,17 +83,14 @@ export async function recipe({
             `で排出された戦闘員 (全 ${numWithComma.format(units[0].total)}回)`
         )
         .addFields(
-            units.slice(0, 6).map((unit, index) => {
-                const name = unit.PCKeyString.replace(/^Char_.+?_/, "").replace(
-                    "_N",
-                    ""
-                );
-                const ratio = Math.round(unit.ratio * 100 * 100) / 100;
-                const count = numWithComma.format(unit.count);
+            units.slice(0, 6).map((response, index) => {
+                const unit = getUnit(response.PCKeyString);
+                const ratio = Math.round(response.ratio * 100 * 100) / 100;
+                const count = numWithComma.format(response.count);
 
                 return {
                     name: `__${index + 1}.__ ${count} 回排出 (${ratio}%)`,
-                    value: `${name}`,
+                    value: `${unit.emoji} ${unit.name}`,
                     inline: true,
                 };
             })
@@ -103,14 +101,12 @@ export async function recipe({
             .setCustomId("select_search_by_unit")
             .setPlaceholder("それらの戦闘員がよく出るレシピを検索する")
             .addOptions(
-                units.slice(0, 6).map((unit) => {
-                    const name = unit.PCKeyString.replace(
-                        /^Char_.+?_/,
-                        ""
-                    ).replace("_N", "");
+                units.slice(0, 6).map(({ PCKeyString }) => {
+                    const unit = getUnit(PCKeyString);
                     return {
-                        label: name,
-                        value: unit.PCKeyString,
+                        label: unit.name,
+                        value: unit.key,
+                        emoji: unit.emoji,
                     };
                 })
             )

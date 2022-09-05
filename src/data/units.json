@@ -1,148 +1,732 @@
 [
-    "Char_3P_Alexandra_N",
-    "Char_3P_Alice_N",
-    "Char_3P_Annie_N",
-    "Char_3P_Aqua_N",
-    "Char_3P_Aurora_N",
-    "Char_3P_BlackLilith_N",
-    "Char_3P_BlackWyrm_N",
-    "Char_3P_CSPerrault_N",
-    "Char_3P_ConstantiaS2_N",
-    "Char_3P_Daphne_N",
-    "Char_3P_Dryad_N",
-    "Char_3P_Eternity_N",
-    "Char_3P_Fenrir_N",
-    "Char_3P_Fotia_N",
-    "Char_3P_Frigga_N",
-    "Char_3P_Hachiko_N",
-    "Char_3P_Hirume_N",
-    "Char_3P_Maria_N",
-    "Char_3P_Poi_N",
-    "Char_3P_Ran_N",
-    "Char_3P_Rhea_N",
-    "Char_3P_ScissorsLise_N",
-    "Char_3P_SnowFeather_N",
-    "Char_3P_Sowan_N",
-    "Char_3P_Titania_N",
-    "Char_3P_Vanilla_N",
-    "Char_BR_ALWraith_N",
-    "Char_BR_AS12TurtleDragon_N",
-    "Char_BR_Alvis_N",
-    "Char_BR_Amy_N",
-    "Char_BR_Andvari_N",
-    "Char_BR_Banshee_N",
-    "Char_BR_BeastHunter_N",
-    "Char_BR_Bheur_N",
-    "Char_BR_Blackhound_N",
-    "Char_BR_BloodyPanther_N",
-    "Char_BR_Brownie_N",
-    "Char_BR_Bulgasari_N",
-    "Char_BR_Calista_N",
-    "Char_BR_Daika_N",
-    "Char_BR_Djinnia_N",
-    "Char_BR_DrM_N",
-    "Char_BR_Echidna_N",
-    "Char_BR_Efreeti_N",
-    "Char_BR_Emily_N",
-    "Char_BR_Gnome_N",
-    "Char_BR_Gremlin_N",
-    "Char_BR_Harpy_N",
-    "Char_BR_HongRyun_N",
-    "Char_BR_Hraesvelgr_N",
-    "Char_BR_Hyena_N",
-    "Char_BR_Impet_N",
-    "Char_BR_Io_N",
-    "Char_BR_Khan_N",
-    "Char_BR_Leona_N",
-    "Char_BR_Leprechaun_N",
-    "Char_BR_Lindwurm_N",
-    "Char_BR_Marie_N",
-    "Char_BR_May_N",
-    "Char_BR_Miho_N",
-    "Char_BR_Neodym_N",
-    "Char_BR_Nereid_N",
-    "Char_BR_NickyTracy_N",
-    "Char_BR_NightAngel_N",
-    "Char_BR_Nymph_N",
-    "Char_BR_PA00EL_N",
-    "Char_BR_PXSilky_N",
-    "Char_BR_Pani_N",
-    "Char_BR_Phantom_N",
-    "Char_BR_Phoenix_N",
-    "Char_BR_PoniesAnger_N",
-    "Char_BR_QuickCamel_N",
-    "Char_BR_Raven_N",
-    "Char_BR_RedHood_N",
-    "Char_BR_RoyalArsenal_N",
-    "Char_BR_Salamander_N",
-    "Char_BR_SandMan_N",
-    "Char_BR_Scarabya_N",
-    "Char_BR_Scathy_N",
-    "Char_BR_Shirayuri_N",
-    "Char_BR_Sirene_N",
-    "Char_BR_Sleipnir_N",
-    "Char_BR_Spriggan_N",
-    "Char_BR_Sylphid_N",
-    "Char_BR_TalonFeather_N",
-    "Char_BR_Thetis_N",
-    "Char_BR_Tomoe_N",
-    "Char_BR_Undine_N",
-    "Char_BR_Valkyrie_N",
-    "Char_BR_WarWolf_N",
-    "Char_BR_Wraithy_N",
-    "Char_DS_Arman_N",
-    "Char_DS_Atalanta_N",
-    "Char_DS_Azazel_N",
-    "Char_DS_Baekto_N",
-    "Char_DS_Charlotte_N",
-    "Char_DS_Faucre_N",
-    "Char_DS_Johanna_N",
-    "Char_DS_KunoichiKaen_N",
-    "Char_DS_KunoichiZero_N",
-    "Char_DS_MoMo_N",
-    "Char_DS_Ramiel_N",
-    "Char_DS_Saraqael_N",
-    "Char_PECS_Audrey_N",
-    "Char_PECS_Azaz_N",
-    "Char_PECS_BS_N",
-    "Char_PECS_Babariana_N",
-    "Char_PECS_Boryeon_N",
-    "Char_PECS_Carolina_N",
-    "Char_PECS_Cerberus_N",
-    "Char_PECS_Circe_N",
-    "Char_PECS_CoCoWhiteShell_N",
-    "Char_PECS_DarkElf_N",
-    "Char_PECS_Draculina_N",
-    "Char_PECS_DutchGirl_N",
-    "Char_PECS_Ella_N",
-    "Char_PECS_ElvenForestmaker_N",
-    "Char_PECS_Empress_N",
-    "Char_PECS_Express76_N",
-    "Char_PECS_Fortune_N",
-    "Char_PECS_HighElven_N",
-    "Char_PECS_Hussar_N",
-    "Char_PECS_Ignis_N",
-    "Char_PECS_LRL_N",
-    "Char_PECS_Leanne_N",
-    "Char_PECS_Lumberjane_N",
-    "Char_PECS_Machina_N",
-    "Char_PECS_Mery_N",
-    "Char_PECS_MightyR_N",
-    "Char_PECS_MissSafety_N",
-    "Char_PECS_Mnemosyne_N",
-    "Char_PECS_Muse_N",
-    "Char_PECS_QueenMane_N",
-    "Char_PECS_Rena_N",
-    "Char_PECS_Sadius_N",
-    "Char_PECS_Saetti_N",
-    "Char_PECS_Serpent_N",
-    "Char_PECS_Spartoia_N",
-    "Char_PECS_Sunny_N",
-    "Char_PECS_Tiequan_N",
-    "Char_PECS_Triaina_N",
-    "Char_PECS_Veronica_N",
-    "Char_SJ_Orellia_N",
-    "Char_SJ_Tachi_N",
-    "Char_ST_Lancer_N",
-    "Char_ST_Tiamat_N"
+    {
+        "key": "Char_BR_ALWraith_N",
+        "name": "ALレイス",
+        "emoji": "<:ALWraith:1016405754976153770>"
+    },
+    {
+        "key": "Char_BR_AS12TurtleDragon_N",
+        "name": "AS-12スチールドラコ",
+        "emoji": "<:AS12TurtleDragon:1016405775163342948>"
+    },
+    {
+        "key": "Char_3P_Alexandra_N",
+        "name": "共振のアレクサンドラ",
+        "emoji": "<:Alexandra:1016405748072316978>"
+    },
+    {
+        "key": "Char_3P_Alice_N",
+        "name": "セラピアス･アリス",
+        "emoji": "<:Alice:1016405750391779369>"
+    },
+    {
+        "key": "Char_BR_Alvis_N",
+        "name": "T-13アルヴィス",
+        "emoji": "<:Alvis:1016405752585408542>"
+    },
+    {
+        "key": "Char_BR_Amy_N",
+        "name": "エイミーレイザー",
+        "emoji": "<:Amy:1016405759577313310>"
+    },
+    {
+        "key": "Char_BR_Andvari_N",
+        "name": "C-33アンドバリ",
+        "emoji": "<:Andvari:1016405761733173248>"
+    },
+    {
+        "key": "Char_3P_Annie_N",
+        "name": "アイアンアニー",
+        "emoji": "<:Annie:1016405766288187442>"
+    },
+    {
+        "key": "Char_3P_Aqua_N",
+        "name": "アクア",
+        "emoji": "<:Aqua:1016405768540536832>"
+    },
+    {
+        "key": "Char_DS_Arman_N",
+        "name": "アルマン枢機卿",
+        "emoji": "<:Arman:1016405772579655781>"
+    },
+    {
+        "key": "Char_DS_Atalanta_N",
+        "name": "疾走するアタランテ",
+        "emoji": "<:Atalanta:1016405777449242734>"
+    },
+    {
+        "key": "Char_PECS_Audrey_N",
+        "name": "オードリードリームウィーバー",
+        "emoji": "<:Audrey:1016405779416358922>"
+    },
+    {
+        "key": "Char_3P_Aurora_N",
+        "name": "アウローラ",
+        "emoji": "<:Aurora:1016405781563850762>"
+    },
+    {
+        "key": "Char_PECS_Azaz_N",
+        "name": "解体者アザズ",
+        "emoji": "<:Azaz:1016405784092999801>"
+    },
+    {
+        "key": "Char_DS_Azazel_N",
+        "name": "アザゼル",
+        "emoji": "<:Azazel:1016405788815790220>"
+    },
+    {
+        "key": "Char_PECS_BS_N",
+        "name": "コネクターユミ",
+        "emoji": "<:BS:1016405818998005891>"
+    },
+    {
+        "key": "Char_PECS_Babariana_N",
+        "name": "バーバリアナ",
+        "emoji": "<:Babariana:1016405790875197450>"
+    },
+    {
+        "key": "Char_DS_Baekto_N",
+        "name": "魔法少女マジカル白兎",
+        "emoji": "<:Baekto:1016405793073012786>"
+    },
+    {
+        "key": "Char_BR_Banshee_N",
+        "name": "A-87バンシー",
+        "emoji": "<:Banshee:1016405795237265509>"
+    },
+    {
+        "key": "Char_BR_BeastHunter_N",
+        "name": "AT-100ビーストハンター",
+        "emoji": "<:BeastHunter:1016405797661593800>"
+    },
+    {
+        "key": "Char_BR_Bheur_N",
+        "name": "T-12カリアフ・ベラ",
+        "emoji": "<:Bheur:1016405799972655104>"
+    },
+    {
+        "key": "Char_3P_BlackLilith_N",
+        "name": "ブラックリリス",
+        "emoji": "<:BlackLilith:1016405804917719120>"
+    },
+    {
+        "key": "Char_3P_BlackWyrm_N",
+        "name": "ブラックワームS9",
+        "emoji": "<:BlackWyrm:1016405807811792996>"
+    },
+    {
+        "key": "Char_BR_Blackhound_N",
+        "name": "P/A-8ブラックハウンド",
+        "emoji": "<:Blackhound:1016405802875109487>"
+    },
+    {
+        "key": "Char_BR_BloodyPanther_N",
+        "name": "A-1ブラッディパンサー",
+        "emoji": "<:BloodyPanther:1016405810626179142>"
+    },
+    {
+        "key": "Char_PECS_Boryeon_N",
+        "name": "宝蓮",
+        "emoji": "<:Boryeon:1016405813088239667>"
+    },
+    {
+        "key": "Char_BR_Brownie_N",
+        "name": "T-2ブラウニー",
+        "emoji": "<:Brownie:1016405815348969512>"
+    },
+    {
+        "key": "Char_BR_Bulgasari_N",
+        "name": "T-60ブルガサリ",
+        "emoji": "<:Bulgasari:1016405821527162973>"
+    },
+    {
+        "key": "Char_3P_CSPerrault_N",
+        "name": "CSペロ",
+        "emoji": "<:CSPerrault:1016405845342425098>"
+    },
+    {
+        "key": "Char_BR_Calista_N",
+        "name": "A-54カリスタ",
+        "emoji": "<:Calista:1016405826656796743>"
+    },
+    {
+        "key": "Char_PECS_Carolina_N",
+        "name": "キャロルライナ",
+        "emoji": "<:Carolina:1016405829232111798>"
+    },
+    {
+        "key": "Char_PECS_Cerberus_N",
+        "name": "ケルベロス",
+        "emoji": "<:Cerberus:1016405830901432451>"
+    },
+    {
+        "key": "Char_DS_Charlotte_N",
+        "name": "シャーロット",
+        "emoji": "<:Charlotte:1016405833543848028>"
+    },
+    {
+        "key": "Char_PECS_Circe_N",
+        "name": "キルケー",
+        "emoji": "<:Circe:1016405838472163358>"
+    },
+    {
+        "key": "Char_PECS_CoCoWhiteShell_N",
+        "name": "ココ･イン･ホワイトシェル",
+        "emoji": "<:CoCoWhiteShell:1016405840867106906>"
+    },
+    {
+        "key": "Char_3P_ConstantiaS2_N",
+        "name": "コンスタンツァS2",
+        "emoji": "<:ConstantiaS2:1016405842960068710>"
+    },
+    {
+        "key": "Char_BR_Daika_N",
+        "name": "37式ダイカ",
+        "emoji": "<:Daika:1016405850157486191>"
+    },
+    {
+        "key": "Char_3P_Daphne_N",
+        "name": "ダフネ",
+        "emoji": "<:Daphne:1016405852195934239>"
+    },
+    {
+        "key": "Char_PECS_DarkElf_N",
+        "name": "ダークエルブンフォレストレンジャー",
+        "emoji": "<:DarkElf:1016405855584911380>"
+    },
+    {
+        "key": "Char_BR_Djinnia_N",
+        "name": "P-2000ジニヤー",
+        "emoji": "<:Djinnia:1016405739616608287>"
+    },
+    {
+        "key": "Char_BR_DrM_N",
+        "name": "ドクター",
+        "emoji": "<:DrM:1016406344816930856>"
+    },
+    {
+        "key": "Char_PECS_Draculina_N",
+        "name": "ドラキュリナ",
+        "emoji": "<:Draculina:1016406342707183686>"
+    },
+    {
+        "key": "Char_3P_Dryad_N",
+        "name": "ドリアード",
+        "emoji": "<:Dryad:1016406348944130138>"
+    },
+    {
+        "key": "Char_PECS_DutchGirl_N",
+        "name": "ダッチガール",
+        "emoji": "<:DutchGirl:1016406351620079707>"
+    },
+    {
+        "key": "Char_BR_Echidna_N",
+        "name": "エキドナ",
+        "emoji": "<:Echidna:1016406353708851321>"
+    },
+    {
+        "key": "Char_BR_Efreeti_N",
+        "name": "M-5イフリート",
+        "emoji": "<:Efreeti:1016406356003127366>"
+    },
+    {
+        "key": "Char_PECS_Ella_N",
+        "name": "天空のエラ",
+        "emoji": "<:Ella:1016406357940916264>"
+    },
+    {
+        "key": "Char_PECS_ElvenForestmaker_N",
+        "name": "エルブン･フォレストメーカー",
+        "emoji": "<:ElvenForestmaker:1016406362504319006>"
+    },
+    {
+        "key": "Char_BR_Emily_N",
+        "name": "X-05エミリー",
+        "emoji": "<:Emily:1016406364706316359>"
+    },
+    {
+        "key": "Char_PECS_Empress_N",
+        "name": "エンプレス",
+        "emoji": "<:Empress:1016406366967054336>"
+    },
+    {
+        "key": "Char_3P_Eternity_N",
+        "name": "エタニティ",
+        "emoji": "<:Eternity:1016406372033769632>"
+    },
+    {
+        "key": "Char_PECS_Express76_N",
+        "name": "エクスプレス76",
+        "emoji": "<:Express76:1016406375066255360>"
+    },
+    {
+        "key": "Char_DS_Faucre_N",
+        "name": "ポックル大魔王",
+        "emoji": "<:Faucre:1016406379214422186>"
+    },
+    {
+        "key": "Char_3P_Fenrir_N",
+        "name": "フェンリル",
+        "emoji": "<:Fenrir:1016406381462556672>"
+    },
+    {
+        "key": "Char_PECS_Fortune_N",
+        "name": "フォーチュン",
+        "emoji": "<:Fortune:1016406386780946462>"
+    },
+    {
+        "key": "Char_3P_Fotia_N",
+        "name": "炉端のポルティーヤ",
+        "emoji": "<:Fotia:1016406389150720040>"
+    },
+    {
+        "key": "Char_3P_Frigga_N",
+        "name": "フリッガ",
+        "emoji": "<:Frigga:1016406391453401100>"
+    },
+    {
+        "key": "Char_BR_Gnome_N",
+        "name": "T-20Sノーム",
+        "emoji": "<:Gnome:1016406399351263304>"
+    },
+    {
+        "key": "Char_BR_Gremlin_N",
+        "name": "T-9グレムリン",
+        "emoji": "<:Gremlin:1016406404178911274>"
+    },
+    {
+        "key": "Char_3P_Hachiko_N",
+        "name": "城壁のハチコ",
+        "emoji": "<:Hachiko:1016406408733925549>"
+    },
+    {
+        "key": "Char_BR_Harpy_N",
+        "name": "P-22ハルピュイア",
+        "emoji": "<:Harpy:1016406411200168026>"
+    },
+    {
+        "key": "Char_PECS_HighElven_N",
+        "name": "生命のセレスティア",
+        "emoji": "<:HighElven:1016406413322502244>"
+    },
+    {
+        "key": "Char_3P_Hirume_N",
+        "name": "天香のヒルメ",
+        "emoji": "<:Hirume:1016406416187203654>"
+    },
+    {
+        "key": "Char_BR_HongRyun_N",
+        "name": "C-77紅蓮",
+        "emoji": "<:HongRyun:1016406418506662028>"
+    },
+    {
+        "key": "Char_BR_Hraesvelgr_N",
+        "name": "EB-48Gフレースヴェルグ",
+        "emoji": "<:Hraesvelgr:1016406420649938974>"
+    },
+    {
+        "key": "Char_PECS_Hussar_N",
+        "name": "AC-6ユサール",
+        "emoji": "<:Hussar:1016406422877122590>"
+    },
+    {
+        "key": "Char_BR_Hyena_N",
+        "name": "T-40ハイエナ",
+        "emoji": "<:Hyena:1016406425079136306>"
+    },
+    {
+        "key": "Char_PECS_Ignis_N",
+        "name": "イグニス",
+        "emoji": "<:Ignis:1016406427323093095>"
+    },
+    {
+        "key": "Char_BR_Impet_N",
+        "name": "AA-7インペット",
+        "emoji": "<:Impet:1016406429332160684>"
+    },
+    {
+        "key": "Char_BR_Io_N",
+        "name": "A-6イオ",
+        "emoji": "<:Io:1016406433874583563>"
+    },
+    {
+        "key": "Char_DS_Johanna_N",
+        "name": "プレスターヨアンナ",
+        "emoji": "<:Johanna:1016406438714822656>"
+    },
+    {
+        "key": "Char_BR_Khan_N",
+        "name": "迅速のカーン",
+        "emoji": "<:Khan:1016406440895860927>"
+    },
+    {
+        "key": "Char_DS_KunoichiKaen_N",
+        "name": "クノイチ・カエン",
+        "emoji": "<:KunoichiKaen:1016406445782208523>"
+    },
+    {
+        "key": "Char_DS_KunoichiZero_N",
+        "name": "クノイチ・ゼロ",
+        "emoji": "<:KunoichiZero:1016406447954858025>"
+    },
+    {
+        "key": "Char_ST_Lancer_N",
+        "name": "ランサーミナ",
+        "emoji": "<:Lancer:1016406453235494964>"
+    },
+    {
+        "key": "Char_PECS_Leanne_N",
+        "name": "慈悲深きリアン",
+        "emoji": "<:Leanne:1016406455575920751>"
+    },
+    {
+        "key": "Char_PECS_LRL_N",
+        "name": "LRL",
+        "emoji": "<:LRL:1016406502283686038>"
+    },
+    {
+        "key": "Char_BR_Leona_N",
+        "name": "鉄血のレオナ",
+        "emoji": "<:Leona:1016406495409213440>"
+    },
+    {
+        "key": "Char_BR_Leprechaun_N",
+        "name": "T-3レプリコン",
+        "emoji": "<:Leprechaun:1016406497808351333>"
+    },
+    {
+        "key": "Char_BR_Lindwurm_N",
+        "name": "P-29リントヴルム",
+        "emoji": "<:Lindwurm:1016406500228472932>"
+    },
+    {
+        "key": "Char_PECS_Lumberjane_N",
+        "name": "ランバージェーン",
+        "emoji": "<:Lumberjane:1016406504431177758>"
+    },
+    {
+        "key": "Char_PECS_Machina_N",
+        "name": "マキナ",
+        "emoji": "<:Machina:1016406506452824125>"
+    },
+    {
+        "key": "Char_3P_Maria_N",
+        "name": "贖罪のマリア",
+        "emoji": "<:Maria:1016406508981989457>"
+    },
+    {
+        "key": "Char_BR_Marie_N",
+        "name": "不屈のマリー",
+        "emoji": "<:Marie:1016406511410479234>"
+    },
+    {
+        "key": "Char_BR_May_N",
+        "name": "滅亡のメイ",
+        "emoji": "<:May:1016406513482465350>"
+    },
+    {
+        "key": "Char_PECS_Mery_N",
+        "name": "メリー",
+        "emoji": "<:Mery:1016406519778136205>"
+    },
+    {
+        "key": "Char_PECS_MightyR_N",
+        "name": "マイティR",
+        "emoji": "<:MightyR:1016406521812373575>"
+    },
+    {
+        "key": "Char_BR_Miho_N",
+        "name": "T-14ミホ",
+        "emoji": "<:Miho:1016406524106653767>"
+    },
+    {
+        "key": "Char_PECS_MissSafety_N",
+        "name": "Miss Safety",
+        "emoji": "<:MissSafety:1016406525679517777>"
+    },
+    {
+        "key": "Char_PECS_Mnemosyne_N",
+        "name": "ムネモシュネ",
+        "emoji": "<:Mnemosyne:1016406528032518286>"
+    },
+    {
+        "key": "Char_DS_MoMo_N",
+        "name": "魔法少女マジカルモモ",
+        "emoji": "<:MoMo:1016406530310025286>"
+    },
+    {
+        "key": "Char_PECS_Muse_N",
+        "name": "ミューズ",
+        "emoji": "<:Muse:1016406535263490078>"
+    },
+    {
+        "key": "Char_BR_Neodym_N",
+        "name": "ネオディム",
+        "emoji": "<:Neodym:1016406537369026650>"
+    },
+    {
+        "key": "Char_BR_Nereid_N",
+        "name": "AG-1ネレイド",
+        "emoji": "<:Nereid:1016406540250521723>"
+    },
+    {
+        "key": "Char_BR_NickyTracy_N",
+        "name": "ニッキー・トレイシー",
+        "emoji": "<:NickyTracy:1016406543517884556>"
+    },
+    {
+        "key": "Char_BR_NightAngel_N",
+        "name": "B-11ナイトエンジェル",
+        "emoji": "<:NightAngel:1016406545006862456>"
+    },
+    {
+        "key": "Char_BR_Nymph_N",
+        "name": "T-10ニンフ",
+        "emoji": "<:Nymph:1016406547426967692>"
+    },
+    {
+        "key": "Char_SJ_Orellia_N",
+        "name": "オレリア",
+        "emoji": "<:Orellia:1016406552632102952>"
+    },
+    {
+        "key": "Char_BR_PA00EL_N",
+        "name": "P/A-00グリフォン",
+        "emoji": "<:PA00EL:1016406554611826719>"
+    },
+    {
+        "key": "Char_BR_PXSilky_N",
+        "name": "T-50PXシルキー",
+        "emoji": "<:PXSilky:1016406572680880209>"
+    },
+    {
+        "key": "Char_BR_Pani_N",
+        "name": "AT-4パニ",
+        "emoji": "<:Pani:1016406556667019374>"
+    },
+    {
+        "key": "Char_BR_Phantom_N",
+        "name": "ALファントム",
+        "emoji": "<:Phantom:1016406560806801459>"
+    },
+    {
+        "key": "Char_BR_Phoenix_N",
+        "name": "GS-130フェニックス",
+        "emoji": "<:Phoenix:1016406562996232233>"
+    },
+    {
+        "key": "Char_3P_Poi_N",
+        "name": "ポイ",
+        "emoji": "<:Poi:1016406565500235887>"
+    },
+    {
+        "key": "Char_BR_PoniesAnger_N",
+        "name": "P-24ピント",
+        "emoji": "<:PoniesAnger:1016406567731593286>"
+    },
+    {
+        "key": "Char_PECS_QueenMane_N",
+        "name": "クイーンオブメイン",
+        "emoji": "<:QueenMane:1016406575449133089>"
+    },
+    {
+        "key": "Char_BR_QuickCamel_N",
+        "name": "クイックキャメル",
+        "emoji": "<:QuickCamel:1016406577936343070>"
+    },
+    {
+        "key": "Char_DS_Ramiel_N",
+        "name": "ラミエル",
+        "emoji": "<:Ramiel:1016406580054458449>"
+    },
+    {
+        "key": "Char_3P_Ran_N",
+        "name": "金蘭S7",
+        "emoji": "<:Ran:1016406585737752698>"
+    },
+    {
+        "key": "Char_BR_Raven_N",
+        "name": "AO-2レイヴン",
+        "emoji": "<:Raven:1016406588048801842>"
+    },
+    {
+        "key": "Char_BR_RedHood_N",
+        "name": "C-77レッドフード",
+        "emoji": "<:RedHood:1016406590221451294>"
+    },
+    {
+        "key": "Char_PECS_Rena_N",
+        "name": "レナ・ザ・チャンピオン",
+        "emoji": "<:Rena:1016406592381517834>"
+    },
+    {
+        "key": "Char_3P_Rhea_N",
+        "name": "オベロニア･レア",
+        "emoji": "<:Rhea:1016406594625486959>"
+    },
+    {
+        "key": "Char_BR_RoyalArsenal_N",
+        "name": "ロイヤル・アーセナル",
+        "emoji": "<:RoyalArsenal:1016406600707227668>"
+    },
+    {
+        "key": "Char_PECS_Sadius_N",
+        "name": "懲罰のサディアス",
+        "emoji": "<:Sadius:1016406603349643316>"
+    },
+    {
+        "key": "Char_PECS_Saetti_N",
+        "name": "セティ",
+        "emoji": "<:Saetti:1016406605635530803>"
+    },
+    {
+        "key": "Char_BR_Salamander_N",
+        "name": "A-15サラマンダー",
+        "emoji": "<:Salamander:1016406784191242271>"
+    },
+    {
+        "key": "Char_BR_SandMan_N",
+        "name": "GS-10サンドガール",
+        "emoji": "<:SandMan:1016406786305179769>"
+    },
+    {
+        "key": "Char_DS_Saraqael_N",
+        "name": "サラカエル",
+        "emoji": "<:Saraqael:1016406787999666239>"
+    },
+    {
+        "key": "Char_BR_Scarabya_N",
+        "name": "C-11スカラビア",
+        "emoji": "<:Scarabya:1016406790642085999>"
+    },
+    {
+        "key": "Char_BR_Scathy_N",
+        "name": "スカディー",
+        "emoji": "<:Scathy:1016406792789565630>"
+    },
+    {
+        "key": "Char_3P_ScissorsLise_N",
+        "name": "シザーズリーゼ",
+        "emoji": "<:ScissorsLise:1016406794853171271>"
+    },
+    {
+        "key": "Char_PECS_Serpent_N",
+        "name": "フロストサーペント",
+        "emoji": "<:Serpent:1016406800406433913>"
+    },
+    {
+        "key": "Char_BR_Shirayuri_N",
+        "name": "シラユリ",
+        "emoji": "<:Shirayuri:1016406803996753931>"
+    },
+    {
+        "key": "Char_BR_Sirene_N",
+        "name": "AG-2Cセイレーン",
+        "emoji": "<:Sirene:1016406806395883660>"
+    },
+    {
+        "key": "Char_BR_Sleipnir_N",
+        "name": "P-49スレイプニール",
+        "emoji": "<:Sleipnir:1016406808899878922>"
+    },
+    {
+        "key": "Char_3P_SnowFeather_N",
+        "name": "スノーフェザー",
+        "emoji": "<:SnowFeather:1016406811198378094>"
+    },
+    {
+        "key": "Char_3P_Sowan_N",
+        "name": "ソワン",
+        "emoji": "<:Sowan:1016406815602393188>"
+    },
+    {
+        "key": "Char_PECS_Spartoia_N",
+        "name": "スパトイア",
+        "emoji": "<:Spartoia:1016406824456564756>"
+    },
+    {
+        "key": "Char_BR_Spriggan_N",
+        "name": "A-14Bスプリガン",
+        "emoji": "<:Spriggan:1016406826490802197>"
+    },
+    {
+        "key": "Char_PECS_Sunny_N",
+        "name": "アクロバティック・サニー",
+        "emoji": "<:Sunny:1016406834237681665>"
+    },
+    {
+        "key": "Char_BR_Sylphid_N",
+        "name": "P-18シルフィード",
+        "emoji": "<:Sylphid:1016406836708134923>"
+    },
+    {
+        "key": "Char_SJ_Tachi_N",
+        "name": "タチ",
+        "emoji": "<:Tachi:1016406839065313380>"
+    },
+    {
+        "key": "Char_BR_TalonFeather_N",
+        "name": "E-16タロンフェザー",
+        "emoji": "<:TalonFeather:1016406841233768569>"
+    },
+    {
+        "key": "Char_BR_Thetis_N",
+        "name": "MH-4テティス",
+        "emoji": "<:Thetis:1016406843712610395>"
+    },
+    {
+        "key": "Char_ST_Tiamat_N",
+        "name": "X-00ティアマト",
+        "emoji": "<:Tiamat:1016406845675544638>"
+    },
+    {
+        "key": "Char_PECS_Tiequan_N",
+        "name": "ティエ･チュァン",
+        "emoji": "<:Tiequan:1016406847974027407>"
+    },
+    {
+        "key": "Char_3P_Titania_N",
+        "name": "ティタニア・フロスト",
+        "emoji": "<:Titania:1016406850465443890>"
+    },
+    {
+        "key": "Char_BR_Tomoe_N",
+        "name": "トモ",
+        "emoji": "<:Tomoe:1016406855003684934>"
+    },
+    {
+        "key": "Char_PECS_Triaina_N",
+        "name": "トリアイナ",
+        "emoji": "<:Triaina:1016406857201483876>"
+    },
+    {
+        "key": "Char_BR_Undine_N",
+        "name": "P-3Mウンディーネ",
+        "emoji": "<:Undine:1016406768642965534>"
+    },
+    {
+        "key": "Char_BR_Valkyrie_N",
+        "name": "T-8Wヴァルキリー",
+        "emoji": "<:Valkyrie:1016406770865950862>"
+    },
+    {
+        "key": "Char_3P_Vanilla_N",
+        "name": "バニラA1",
+        "emoji": "<:Vanilla:1016406773369929812>"
+    },
+    {
+        "key": "Char_PECS_Veronica_N",
+        "name": "ヴェロニカ",
+        "emoji": "<:Veronica:1016406775869739118>"
+    },
+    {
+        "key": "Char_BR_WarWolf_N",
+        "name": "T-75ウェアウルフ",
+        "emoji": "<:WarWolf:1016406777396478114>"
+    },
+    {
+        "key": "Char_BR_Wraithy_N",
+        "name": "レイシー",
+        "emoji": "<:Wraithy:1016406781670461542>"
+    }
 ]
