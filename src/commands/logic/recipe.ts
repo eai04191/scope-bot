@@ -1,6 +1,6 @@
 import { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } from "discord.js";
-import emoji from "../../data/emoji.json" assert { type: "json" };
 import { supabase } from "../../db";
+import { createRecipeString } from "../../util/createRecipeString";
 import { getUnit } from "../../util/getUnit";
 
 type Response = {
@@ -68,16 +68,17 @@ export async function recipe({
     const embed = new EmbedBuilder();
     embed
         .setTitle(
-            [
-                `${emoji.metal} ${metal}`,
-                `${emoji.nutrient} (${nutrientHead} / ${nutrientChest} / ${nutrientLeg})`,
-                `${emoji.power} ${power}`,
-                specialItem !== 0
-                    ? `${emoji.advanced_module} ${specialItem}`
-                    : null,
-            ]
-                .filter((a) => a)
-                .join(" / ")
+            createRecipeString(
+                {
+                    MetalUsed: metal,
+                    NutrientHeadUsed: nutrientHead,
+                    NutrientChestUsed: nutrientChest,
+                    NutrientLegUsed: nutrientLeg,
+                    PowerUsed: power,
+                    SpecialItemUsed: specialItem,
+                },
+                "markdown"
+            )
         )
         .setDescription(
             `で排出された戦闘員 (全 ${numWithComma.format(units[0].total)}回)`

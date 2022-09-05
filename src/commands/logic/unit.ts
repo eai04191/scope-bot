@@ -1,6 +1,6 @@
 import { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } from "discord.js";
-import emoji from "../../data/emoji.json" assert { type: "json" };
 import { supabase } from "../../db";
+import { createRecipeString } from "../../util/createRecipeString";
 import { getUnit } from "../../util/getUnit";
 
 type Recipe = {
@@ -43,23 +43,15 @@ export async function unit({ pckey }: { pckey: string }) {
         .setDescription("を排出したレシピ一覧")
         .addFields(
             recipes.slice(0, 5).map((recipe, index) => {
+                const figureSpace = String.fromCodePoint(0x2007);
                 const count = numWithComma.format(recipe.count);
+
                 return {
-                    name: `__${index + 1}.__ ${count} 回排出`,
-                    value:
-                        `${recipe.IsSpecial ? "🟥" : "🟩"} ` +
-                        [
-                            `${emoji.metal} **${recipe.MetalUsed}**`,
-                            `${emoji.nutrient} (**${recipe.NutrientHeadUsed}**`,
-                            `**${recipe.NutrientChestUsed}**`,
-                            `**${recipe.NutrientLegUsed}**)`,
-                            `${emoji.power} **${recipe.PowerUsed}**`,
-                            recipe.SpecialItemUsed !== 0
-                                ? `${emoji.advanced_module} **${recipe.SpecialItemUsed}**`
-                                : null,
-                        ]
-                            .filter((a) => a)
-                            .join(" / "),
+                    name: [
+                        `__${index + 1}.__`, //
+                        `${count} 回排出`,
+                    ].join(figureSpace),
+                    value: createRecipeString(recipe, "markdown"),
                 };
             })
         );
@@ -73,18 +65,7 @@ export async function unit({ pckey }: { pckey: string }) {
             .addOptions(
                 recipes.slice(0, 5).map((recipe) => {
                     return {
-                        label: [
-                            `⚙️${recipe.MetalUsed}`,
-                            `💊(${recipe.NutrientHeadUsed}`,
-                            `${recipe.NutrientChestUsed}`,
-                            `${recipe.NutrientLegUsed})`,
-                            `🔋${recipe.PowerUsed}`,
-                            recipe.SpecialItemUsed !== 0
-                                ? `🟥${recipe.SpecialItemUsed}`
-                                : null,
-                        ]
-                            .filter((a) => a)
-                            .join(" / "),
+                        label: createRecipeString(recipe, "plain"),
                         value: JSON.stringify([
                             recipe.MetalUsed,
                             recipe.NutrientHeadUsed,
