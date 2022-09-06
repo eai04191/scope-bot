@@ -3,23 +3,12 @@ import { supabase } from "../../db";
 import { createRecipeString } from "../../util/createRecipeString";
 import { getUnit } from "../../util/getUnit";
 import emoji from "../../data/emoji.json" assert { type: "json" };
-
-type Recipe = {
-    MetalUsed: number;
-    NutrientHeadUsed: number;
-    NutrientChestUsed: number;
-    NutrientLegUsed: number;
-    PowerUsed: number;
-    SpecialItemUsed: number;
-    IsSpecial: boolean;
-    count: number;
-};
+import { FindByPCKeyResponse, FindByRecipeResponse } from "./type";
 
 export async function unit({ pckey }: { pckey: string }) {
-    const { data: recipes, error } = await supabase.rpc<Recipe>(
-        "find_recipe_by_pckey",
-        { pckey }
-    );
+    const { data: recipes, error } = await supabase
+        .rpc<FindByPCKeyResponse>("find_recipe_by_pckey", { pckey })
+        .limit(5);
     if (error) {
         console.error(error);
         throw new Error(":warning: エラーが発生しました");
@@ -30,6 +19,35 @@ export async function unit({ pckey }: { pckey: string }) {
             ":thinking: このレシピで製造されたユニットが見つかりませんでした"
         );
     }
+
+    const ratios = await Promise.all(
+        recipes.map(async (recipe) => {
+            console.log("request start", JSON.stringify(recipe));
+            const { data, error } = await supabase.rpc<FindByRecipeResponse>(
+                "find_pckey_by_recipe",
+                {
+                    metal: recipe.MetalUsed,
+                    nutrient_head: recipe.NutrientHeadUsed,
+                    nutrient_chest: recipe.NutrientChestUsed,
+                    nutrient_leg: recipe.NutrientLegUsed,
+                    power: recipe.PowerUsed,
+                    special_item: recipe.SpecialItemUsed,
+                }
+            );
+            if (data === null || error) {
+                console.error(error);
+                throw new Error(":warning: エラーが発生しました");
+            }
+
+            const found = data.find((v) => v.PCKeyString === pckey);
+            if (found) {
+                console.log(found);
+                return Math.round(found.ratio * 100 * 100) / 100;
+            }
+
+            return null;
+        })
+    );
 
     const icon = `https://cdn.laoplus.net/formationicon/FormationIcon_${pckey.replace(
         /^Char_/,
@@ -44,7 +62,7 @@ export async function unit({ pckey }: { pckey: string }) {
         .setURL(`https://lo.swaytwig.com/units/${unit.key2}`)
         .setDescription("を排出したレシピ一覧")
         .addFields(
-            recipes.slice(0, 5).map((recipe, index) => {
+            recipes.map((recipe, index) => {
                 const figureSpace = String.fromCodePoint(0x2007);
                 const count = numWithComma.format(recipe.count);
 
@@ -52,20 +70,19 @@ export async function unit({ pckey }: { pckey: string }) {
                     name: [
                         `__${index + 1}.__`, //
                         `${count} 回排出`,
+                        `${ratios[index] ? `(${ratios[index]}%)` : ""}`,
                     ].join(figureSpace),
                     value: createRecipeString(recipe, "markdown"),
                 };
             })
         );
 
-    const textEncoder = new TextEncoder();
-
     const row = new ActionRowBuilder<SelectMenuBuilder>().addComponents(
         new SelectMenuBuilder()
             .setCustomId("select_search_by_recipe")
             .setPlaceholder("それらのレシピでよく出る戦闘員を検索する")
             .addOptions(
-                recipes.slice(0, 5).map((recipe) => {
+                recipes.map((recipe) => {
                     return {
                         label: createRecipeString(recipe, "plain"),
                         value: JSON.stringify([

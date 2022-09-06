@@ -2,13 +2,7 @@ import { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } from "discord.js";
 import { supabase } from "../../db";
 import { createRecipeString } from "../../util/createRecipeString";
 import { getUnit } from "../../util/getUnit";
-
-type Response = {
-    PCKeyString: string;
-    count: number;
-    ratio: number;
-    total: number;
-};
+import { FindByRecipeResponse } from "./type";
 
 export async function recipe({
     metal,
@@ -42,17 +36,16 @@ export async function recipe({
         );
     }
 
-    const { data: units, error } = await supabase.rpc<Response>(
-        "find_pckey_by_recipe",
-        {
+    const { data: units, error } = await supabase
+        .rpc<FindByRecipeResponse>("find_pckey_by_recipe", {
             metal,
             nutrient_head: nutrientHead,
             nutrient_chest: nutrientChest,
             nutrient_leg: nutrientLeg,
             power,
             special_item: specialItem,
-        }
-    );
+        })
+        .limit(6);
     if (error) {
         console.error(error);
         throw new Error(":warning: エラーが発生しました");
@@ -84,7 +77,7 @@ export async function recipe({
             `で排出された戦闘員 (全 ${numWithComma.format(units[0].total)}回)`
         )
         .addFields(
-            units.slice(0, 6).map((response, index) => {
+            units.map((response, index) => {
                 const unit = getUnit(response.PCKeyString);
                 const ratio = Math.round(response.ratio * 100 * 100) / 100;
                 const count = numWithComma.format(response.count);
@@ -102,7 +95,7 @@ export async function recipe({
             .setCustomId("select_search_by_unit")
             .setPlaceholder("それらの戦闘員がよく出るレシピを検索する")
             .addOptions(
-                units.slice(0, 6).map(({ PCKeyString }) => {
+                units.map(({ PCKeyString }) => {
                     const unit = getUnit(PCKeyString);
                     return {
                         label: unit.name,
