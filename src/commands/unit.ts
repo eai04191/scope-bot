@@ -39,11 +39,13 @@ export default {
             });
             await interaction.reply(response);
         } catch (error) {
-            console.error("units execute", error);
-            await interaction.reply({
-                content: error.message,
-                ephemeral: true,
-            });
+            if (error instanceof Error) {
+                console.error("units execute", error);
+                await interaction.reply({
+                    content: error.message,
+                    ephemeral: true,
+                });
+            }
             return;
         }
     },
@@ -69,10 +71,12 @@ export default {
             const response = await recipe(data);
             await interaction.reply(response);
         } catch (error) {
-            await interaction.reply({
-                content: error.message,
-                ephemeral: true,
-            });
+            if (error instanceof Error) {
+                await interaction.reply({
+                    content: error.message,
+                    ephemeral: true,
+                });
+            }
         }
     },
 };

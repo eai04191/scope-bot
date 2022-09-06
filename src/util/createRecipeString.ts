@@ -49,4 +49,6 @@ export function createRecipeString(recipe: Recipe, type: "markdown" | "plain") {
             .filter((a) => a)
             .join(figureSpace);
     }
+
+    return "❔";
 }

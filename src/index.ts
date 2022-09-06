@@ -17,7 +17,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.commands = await getCommandsWithCollection();
 
 client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`Logged in as ${client.user?.tag}!`);
 });
 
 client.on("interactionCreate", async (interaction) => {
