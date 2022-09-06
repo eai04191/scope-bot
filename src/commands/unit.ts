@@ -6,18 +6,14 @@ import {
     SelectMenuInteraction,
     SlashCommandBuilder,
 } from "discord.js";
-import units from "../data/units.json" assert { type: "json" };
 import { unit } from "./logic/unit";
 import { recipe } from "./logic/recipe";
+import { getUnits } from "../util/getUnit";
 
-const unitChoices: APIApplicationCommandOptionChoice<string>[] = units.map(
+const unitChoices: APIApplicationCommandOptionChoice<string>[] = getUnits().map(
     (unit) => {
-        const pckeyToShow = unit.key
-            .replace(/^Char_.+?_/, "")
-            .replace("_N", "");
-
         return {
-            name: `${unit.name} (${pckeyToShow})`,
+            name: `${unit.name} (${unit.key3})`,
             value: unit.key,
         };
     }

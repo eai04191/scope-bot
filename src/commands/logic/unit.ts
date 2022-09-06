@@ -41,11 +41,7 @@ export async function unit({ pckey }: { pckey: string }) {
     embed
         .setThumbnail(icon)
         .setTitle(`${emoji.tactics_manual} ${unit.name}`)
-        .setURL(
-            `https://lo.swaytwig.com/units/${pckey
-                .replace(/^Char_/, "")
-                .replace(/_N$/, "")}`
-        )
+        .setURL(`https://lo.swaytwig.com/units/${unit.key2}`)
         .setDescription("を排出したレシピ一覧")
         .addFields(
             recipes.slice(0, 5).map((recipe, index) => {
