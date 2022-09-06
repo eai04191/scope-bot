@@ -22,7 +22,6 @@ export async function unit({ pckey }: { pckey: string }) {
 
     const ratios = await Promise.all(
         recipes.map(async (recipe) => {
-            console.log("request start", JSON.stringify(recipe));
             const { data, error } = await supabase.rpc<FindByRecipeResponse>(
                 "find_pckey_by_recipe",
                 {
@@ -41,7 +40,6 @@ export async function unit({ pckey }: { pckey: string }) {
 
             const found = data.find((v) => v.PCKeyString === pckey);
             if (found) {
-                console.log(found);
                 return Math.round(found.ratio * 100 * 100) / 100;
             }
 
