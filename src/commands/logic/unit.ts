@@ -6,6 +6,7 @@ import emoji from "../../data/emoji.json" assert { type: "json" };
 import { FindByPCKeyResponse, FindByRecipeResponse } from "./type";
 
 export async function unit({ pckey }: { pckey: string }) {
+    const unit = getUnit(pckey);
     const { data: recipes, error } = await supabase
         .rpc<FindByPCKeyResponse>("find_recipe_by_pckey", { pckey })
         .limit(5);
@@ -16,7 +17,7 @@ export async function unit({ pckey }: { pckey: string }) {
 
     if (recipes.length === 0) {
         throw new Error(
-            ":thinking: このレシピで製造されたユニットが見つかりませんでした"
+            `:thinking: ${unit.name}はまだ一度も製造されていないようです`
         );
     }
 
@@ -51,7 +52,6 @@ export async function unit({ pckey }: { pckey: string }) {
         /^Char_/,
         ""
     )}.webp`;
-    const unit = getUnit(pckey);
     const numWithComma = new Intl.NumberFormat();
     const embed = new EmbedBuilder();
     embed

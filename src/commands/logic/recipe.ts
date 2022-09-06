@@ -53,7 +53,14 @@ export async function recipe({
 
     if (units.length === 0) {
         throw new Error(
-            ":thinking: このレシピで製造されたユニットが見つかりませんでした"
+            `:thinking: ${createRecipeString({
+                MetalUsed: metal,
+                NutrientHeadUsed: nutrientHead,
+                NutrientChestUsed: nutrientChest,
+                NutrientLegUsed: nutrientLeg,
+                PowerUsed: power,
+                SpecialItemUsed: specialItem,
+            })}で製造された戦闘員は見つかりませんでした`
         );
     }
 

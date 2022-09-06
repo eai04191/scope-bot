@@ -11,7 +11,10 @@ type Recipe = {
 
 const figureSpace = String.fromCodePoint(0x2007);
 
-export function createRecipeString(recipe: Recipe, type: "markdown" | "plain") {
+export function createRecipeString(
+    recipe: Recipe,
+    type: "markdown" | "plain" = "markdown"
+) {
     if (type === "markdown") {
         const advModule =
             recipe.SpecialItemUsed !== 0
