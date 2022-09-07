@@ -350,6 +350,11 @@
         "emoji": "<:Io:1016406433874583563>"
     },
     {
+        "key": "Char_BR_JangHwa_N",
+        "name": "薔花",
+        "emoji": "<:JangHwa:1016406436026269748>"
+    },
+    {
         "key": "Char_DS_Johanna_N",
         "name": "プレスターヨアンナ",
         "emoji": "<:Johanna:1016406438714822656>"
@@ -358,6 +363,11 @@
         "key": "Char_BR_Khan_N",
         "name": "迅速のカーン",
         "emoji": "<:Khan:1016406440895860927>"
+    },
+    {
+        "key": "Char_BR_Kheshig_N",
+        "name": "T-4ケシク",
+        "emoji": "<:Kheshig:1016406443131424818>"
     },
     {
         "key": "Char_DS_KunoichiKaen_N",
