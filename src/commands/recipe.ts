@@ -76,6 +76,7 @@ export default {
         );
 
         try {
+            await interaction.deferReply();
             const response = await recipe({
                 metal,
                 nutrientHead,
@@ -84,10 +85,10 @@ export default {
                 power,
                 specialItem,
             });
-            await interaction.reply(response);
+            await interaction.followUp(response);
         } catch (error) {
             if (error instanceof Error) {
-                await interaction.reply({
+                await interaction.followUp({
                     content: error.message,
                     ephemeral: true,
                 });
@@ -97,13 +98,14 @@ export default {
     },
     async executeSelectMenu(interaction: SelectMenuInteraction<CacheType>) {
         try {
+            await interaction.deferReply();
             const response = await unit({
                 pckey: interaction.values[0],
             });
-            await interaction.reply(response);
+            await interaction.followUp(response);
         } catch (error) {
             if (error instanceof Error) {
-                await interaction.reply({
+                await interaction.followUp({
                     content: error.message,
                     ephemeral: true,
                 });

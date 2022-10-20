@@ -34,14 +34,15 @@ export default {
         const pckey = interaction.options.getString("name", true);
 
         try {
+            await interaction.deferReply();
             const response = await unit({
                 pckey,
             });
-            await interaction.reply(response);
+            await interaction.followUp(response);
         } catch (error) {
             if (error instanceof Error) {
                 console.error("units execute", error);
-                await interaction.reply({
+                await interaction.followUp({
                     content: error.message,
                     ephemeral: true,
                 });
@@ -59,6 +60,7 @@ export default {
     },
     async executeSelectMenu(interaction: SelectMenuInteraction<CacheType>) {
         try {
+            await interaction.deferReply();
             const dataArray = JSON.parse(interaction.values[0]);
             const data = {
                 metal: dataArray[0],
@@ -69,10 +71,10 @@ export default {
                 specialItem: dataArray[5],
             };
             const response = await recipe(data);
-            await interaction.reply(response);
+            await interaction.followUp(response);
         } catch (error) {
             if (error instanceof Error) {
-                await interaction.reply({
+                await interaction.followUp({
                     content: error.message,
                     ephemeral: true,
                 });
