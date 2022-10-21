@@ -35,6 +35,11 @@
         "emoji": "<:Andvari:1016405761733173248>"
     },
     {
+        "key": "Char_DS_Angel_N",
+        "name": "エンジェル",
+        "emoji": "<:Angel:1016405763863871588>"
+    },
+    {
         "key": "Char_3P_Annie_N",
         "name": "アイアンアニー",
         "emoji": "<:Annie:1016405766288187442>"
@@ -618,6 +623,11 @@
         "key": "Char_3P_ScissorsLise_N",
         "name": "シザーズリーゼ",
         "emoji": "<:ScissorsLise:1016406794853171271>"
+    },
+    {
+        "key": "Char_PECS_Sekhmet_N",
+        "name": "死滅のセクメト",
+        "emoji": "<:Sekhmet:1016406796958711958>"
     },
     {
         "key": "Char_PECS_Serpent_N",
