@@ -95,7 +95,9 @@ export async function recipe({
                     inline: true,
                 };
             })
-        );
+        )
+        .setFooter({ text: `最終データ更新日時` })
+        .setTimestamp(new Date(1669532400000));
 
     const row = new ActionRowBuilder<SelectMenuBuilder>().addComponents(
         new SelectMenuBuilder()
